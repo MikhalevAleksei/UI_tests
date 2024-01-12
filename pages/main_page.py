@@ -163,4 +163,3 @@ class MainPage(BasePage):
     def make_order_and_close_success_popup(self):
         self.make_order()
         self.click_to_close_popup_success_order_btn()
-

@@ -37,4 +37,3 @@ class RegisterPage(BasePage):
         LoginPage.set_login_email()
         LoginPage.set_login_password()
         LoginPage.click_btn_login()
-

@@ -2,8 +2,6 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait as Wait
 
-from locators.main_page_locators import MainPageLocators
-
 
 class BasePage:
     DEFAULT_TIMEOUT = 5
