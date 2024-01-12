@@ -42,7 +42,6 @@ class BasePage:
     def drag_and_drop(self, drag, drop):
         ActionChains(self.driver).drag_and_drop(drag, drop).perform()
 
-    def wait_find_element(self, locator, timeout=DEFAULT_TIMEOUT):
-        text_id = self.driver.find_element(
-            MainPageLocators.TXT_ID_OF_NEW_ORDER_LOCATOR)
-        return Wait(self.driver, timeout).until(text_id.text != "9999")
+    def wait_until_not_id(self, locator, text, timeout=DEFAULT_TIMEOUT):
+        return Wait(self.driver, timeout).until_not(
+            EC.text_to_be_present_in_element(locator), text)

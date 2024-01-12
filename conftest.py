@@ -45,7 +45,7 @@ def new_fake_data():
 @pytest.fixture(autouse=True)
 def registration_and_login(new_fake_data, main_page, login_page,
                            register_page):
-    data = new_fake_data
+    data = new_fake_data()
     register_name = data['name']
     register_email = data['email']
     register_password = data['password']
@@ -56,9 +56,9 @@ def registration_and_login(new_fake_data, main_page, login_page,
     register_page.register_password(register_password)
     register_page.click_btn_registration()
 
-    LoginPage.set_login_email(register_email)
-    LoginPage.set_login_password(register_password)
-    LoginPage.click_btn_login()
+    login_page.set_login_email(register_email)
+    login_page.set_login_password(register_password)
+    login_page.click_btn_login()
 
 
 @pytest.fixture(autouse=True)

@@ -27,15 +27,15 @@ class TestMainFunctionality:
         assert main_page.success_close_ingredient_details_popup()
 
     @allure.title('Check ingredient count increases')
-    def test_ingredient_count(self, driver, registration_and_login,
-                              make_order, main_page):
+    def test_ingredient_count(self, driver, login_page, main_page):
+        login_page.registration_and_login()
         count_before = main_page.get_number_of_ingredient_counter()
-        make_order()
+        main_page.make_order_and_close_success_popup()
         count_after = main_page.get_number_of_ingredient_counter()
         assert count_after > count_before
 
     @allure.title('Authorised user may make order')
     def test_authorised_user_order(
-            self, driver, registration_and_login, make_order, main_page):
-        make_order()
+            self, driver, login_page, make_order, main_page):
+        login_page.registration_and_login()
         assert main_page.success_make_order()

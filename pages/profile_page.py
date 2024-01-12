@@ -22,3 +22,11 @@ class ProfilePage(BasePage):
         history_ids_orders = [i for i in ids]
 
         return history_ids_orders
+
+    def check_ids_orders_in_history(self, list_orders):
+        self.click_history_of_orders()
+        history_orders = self.get_orders_from_history_orders()
+        for i in history_orders:
+            if i in list_orders:
+                return True
+            return False

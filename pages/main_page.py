@@ -1,7 +1,4 @@
 import allure
-from selenium.webdriver import ActionChains
-from selenium.webdriver.support.wait import WebDriverWait as Wait
-from selenium.webdriver.support import expected_conditions as EC
 
 from locators.main_page_locators import MainPageLocators
 from locators.login_page_locators import LoginPageLocators
@@ -85,8 +82,7 @@ class MainPage(BasePage):
             MainPageLocators.LNK_BUN_R2_D3_LOCATOR)
         drop_element = self.find_my_element(
             MainPageLocators.FLD_ADD_INGREDIENT_LOCATOR)
-        ActionChains(self.driver).drag_and_drop(drag_element,
-                                                drop_element).perform()
+        self.drag_and_drop(drag_element, drop_element)
         self.click_to_element(MainPageLocators.BTN_MAKE_ORDER_LOCATOR)
 
     @allure.step('Check success make order')
@@ -106,17 +102,13 @@ class MainPage(BasePage):
 
         return list_ids_orders
 
-    @allure.step('Check id is displayed in list and history of orders')
-    def check_ids_orders_in_list_and_history(self):
+    @allure.step('Check id is displayed in list of orders')
+    def check_ids_orders_in_list(self):
         self.click_to_fld_list_of_orders()
         list_orders = self.get_orders_from_list_orders()
         self.click_btn_personal_area()
-        ProfilePage.click_history_of_orders()
-        history_orders = ProfilePage.get_orders_from_history_orders()
-        for i in history_orders:
-            if i in list_orders:
-                return True
-            return False
+
+        return list_orders
 
     @allure.step('Get number of orders during all time')
     def get_number_orders_during_all_time(self):
@@ -141,8 +133,7 @@ class MainPage(BasePage):
         text_id = self.find_my_element(
             MainPageLocators.TXT_ID_OF_NEW_ORDER_LOCATOR)
         if text_id.text == "9999":
-            Wait(self.driver, 5).until_not(EC.text_to_be_present_in_element(
-                text_id), "9999")
+            self.wait_until_not_id(text_id, text_id.text)
         else:
             return text_id.text
 
@@ -167,3 +158,9 @@ class MainPage(BasePage):
     def get_number_of_ingredient_counter(self):
         return self.get_text_from_element(
             MainPageLocators.TXT_COUNTER_OF_INGREDIENT_LOCATOR).text
+
+    @allure.step('Make order and close success pop-up')
+    def make_order_and_close_success_popup(self):
+        self.make_order()
+        self.click_to_close_popup_success_order_btn()
+

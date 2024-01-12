@@ -2,6 +2,7 @@ import allure
 
 from locators.register_page_locators import RegisterPageLocators
 from pages.base_page import BasePage
+from pages.login_page import LoginPage
 
 
 class RegisterPage(BasePage):
@@ -22,9 +23,8 @@ class RegisterPage(BasePage):
     def click_btn_registration(self):
         self.click_to_element(RegisterPageLocators.BTN_REGISTER_LOCATOR)
 
-    # TODO
     @allure.step('Register new user')
-    def register_new_user(self, new_fake_data):
+    def register_new_user_and_login(self, new_fake_data):
         fake_user = new_fake_data()
         name = fake_user['name']
         email = fake_user['email']
@@ -34,3 +34,7 @@ class RegisterPage(BasePage):
         self.register_email(email)
         self.register_password(password)
         self.click_btn_registration()
+        LoginPage.set_login_email()
+        LoginPage.set_login_password()
+        LoginPage.click_btn_login()
+
