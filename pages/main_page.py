@@ -1,8 +1,6 @@
 import allure
 
 from locators.main_page_locators import MainPageLocators
-from locators.login_page_locators import LoginPageLocators
-from pages.profile_page import ProfilePage
 from pages.base_page import BasePage
 
 
@@ -13,11 +11,6 @@ class MainPage(BasePage):
             MainPageLocators.BTN_ENTER_IN_ACCOUNT_LOCATOR)
         self.click_to_element(MainPageLocators.BTN_ENTER_IN_ACCOUNT_LOCATOR)
 
-    @allure.step('Check success transfer to login page')
-    def success_transfer_to_login_page(self):
-        return self.find_my_element(
-            LoginPageLocators.LNK_RESTORE_PASSWORD_LOCATOR)
-
     @allure.step('Click button "Personal area"')
     def click_btn_personal_area(self):
         self.click_to_element(MainPageLocators.BTN_PERSONAL_AREA_LOCATOR)
@@ -25,11 +18,6 @@ class MainPage(BasePage):
     @allure.step('Check success login')
     def success_login(self):
         return self.find_my_element(MainPageLocators.BTN_MAKE_ORDER_LOCATOR)
-
-    @allure.step('Enter and exit from "Personal area"')
-    def enter_and_exit_from_personal_area(self):
-        self.click_btn_personal_area()
-        ProfilePage.click_btn_exit()
 
     @allure.step('Click field "Constractor"')
     def click_fld_constructor(self):

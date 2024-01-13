@@ -1,7 +1,6 @@
 import allure
 
-from locators.reset_password_page_locators import \
-    ResetPasswordPageLocators
+from locators.reset_password_page_locators import ResetPasswordPageLocators
 from pages.base_page import BasePage
 
 
@@ -15,3 +14,7 @@ class ResetPasswordPage(BasePage):
     def is_success_for_show_password_button(self):
         return self.find_my_element(
             ResetPasswordPageLocators.FLD_PASSWORD_FOCUSED_LOCATOR)
+
+    @allure.step('Check success transfer to reset password page')
+    def success_transfer_to_resset_password_page(self):
+        return self.find_my_element(ResetPasswordPageLocators.BTN_SAVE_LOCATOR)

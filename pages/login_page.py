@@ -2,8 +2,6 @@ import allure
 
 from locators.login_page_locators import LoginPageLocators
 from pages.base_page import BasePage
-from pages.main_page import MainPage
-from pages.register_page import RegisterPage
 
 
 class LoginPage(BasePage):
@@ -31,8 +29,14 @@ class LoginPage(BasePage):
     def success_exit_from_account(self):
         return self.find_my_element(LoginPageLocators.BTN_ENTER_LOCATOR)
 
-    @allure.step('Registration and login')
-    def registration_and_login(self):
-        MainPage.enter_account()
-        self.click_registration_link()
-        RegisterPage.register_new_user_and_login()
+    @allure.step('Check success transfer to login page')
+    def success_transfer_to_login_page(self):
+        return self.find_my_element(
+            LoginPageLocators.LNK_RESTORE_PASSWORD_LOCATOR)
+
+    @allure.step('Login')
+    def user_login(self, data):
+        self.set_login_email(data['email'])
+        self.set_login_password(data['password'])
+        self.click_btn_login()
+
