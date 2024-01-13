@@ -10,7 +10,7 @@ class TestPersonalArea:
 
     @allure.title('Check transfer to section "History of orders"')
     def test_transfer_to_history_of_orders(
-            self,  order_history_page, main_page, login_page,
+            self, order_history_page, main_page, login_page,
             register_page, profile_page):
         main_page.enter_account()
         login_page.click_registration_link()
@@ -24,7 +24,7 @@ class TestPersonalArea:
 
     @allure.title('Check exit from account')
     def test_exit_from_account(
-            self,  main_page, profile_page,
+            self, main_page, profile_page,
             login_page, register_page):
         main_page.enter_account()
         login_page.click_registration_link()

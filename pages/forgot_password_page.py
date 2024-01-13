@@ -21,5 +21,3 @@ class ForgotPasswordPage(BasePage):
         text = fake_dict['email']
         self.set_email_to_field_restore_password(text)
         self.click_restore_button()
-
-

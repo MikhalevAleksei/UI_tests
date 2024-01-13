@@ -14,4 +14,3 @@ class IngredientPage(BasePage):
     @allure.step('Close pop-up of success order')
     def close_success_order_pop_up(self):
         self.click_to_element(IngredientPageLocators.BTN_CREST_CLOSE)
-

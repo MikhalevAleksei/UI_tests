@@ -12,5 +12,3 @@ class ProfilePage(BasePage):
     @allure.step('Click button "Exit"')
     def click_btn_exit(self):
         self.click_to_element(ProfilePageLocators.BTN_EXIT)
-
-

@@ -2,7 +2,6 @@ import allure
 
 from locators.register_page_locators import RegisterPageLocators
 from pages.base_page import BasePage
-from pages.login_page import LoginPage
 
 
 class RegisterPage(BasePage):
@@ -36,5 +35,3 @@ class RegisterPage(BasePage):
         self.click_btn_registration()
 
         return fake_user
-
-

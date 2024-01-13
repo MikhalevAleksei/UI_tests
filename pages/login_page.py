@@ -39,4 +39,3 @@ class LoginPage(BasePage):
         self.set_login_email(data['email'])
         self.set_login_password(data['password'])
         self.click_btn_login()
-
