@@ -1,0 +1,11 @@
+allure-pytest==2.13.2
+allure-python-commons==2.13.2
+attrs==23.1.0
+fake==0.8
+Faker==21.0.0
+pip==23.3.2
+pytest-cov==4.1.0
+pytest-lazy-fixture==0.6.3
+pytest==7.4.3
+requests==2.31.0
+selenium==4.16.0
