@@ -1,1 +1,22 @@
-# test https://stellarburgers.nomoreparties.site/
+## Дипломный проект. Задание 2: UI-тесты
+tests for UI https://stellarburgers.nomoreparties.site/
+
+### Автотесты для проверки пользовательского интерфейса, которая помогает заказать бургер в Stellar Burgers
+
+### Реализованные сценарии
+
+Созданы UI-тесты, используется Page Object Model.  
+### Структура проекта
+
+- `locators` - пакет, содержащий локаторы 
+- `pages` - пакет, содержащий обьекты страниц
+- `tests` - пакет, содержащий тесты
+### Запуск автотестов
+
+**Установка зависимостей**
+
+> `$ pip install -r requirements.txt`
+
+
+
+
